@@ -18,7 +18,7 @@ struct Node {
 
     // 默认到达事件为0，需要服务的事件是随机的
     Node(int arrive_time = 0,
-            int duration = Random::uniform(RANDOM_PARAMETER)):
+            int duration = Random::getRandom(EXPONENTAIL, 0.1)):
         arrive_time(arrive_time),
         duration(duration),
         next(NULL) {}

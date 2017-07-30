@@ -78,7 +78,7 @@ int QueueSystem::getIdleServiceWindow() {
 void QueueSystem::customerArrived() {
     total_customer_num++;
     // 生成一个顾客和到达事件
-    int intertime = Random::uniform(100);   // 下一个顾客到达的时间间隔，我们假设100分钟内一定会出现一个顾客
+    int intertime = Random::getRandom(POISSON, 0.5);   // 下一个顾客到达的时间间隔，我们假设100分钟内一定会出现一个顾客
     // 下一个顾客的到达时间 = 当前事件的发生时间 + 一个顾客到达的时间间隔
     int time = current_event->occur_time + intertime;
     Event temp_event(time);
